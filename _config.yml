@@ -1,3 +1,4 @@
+# https://github.com/sylhare/Type-on-Strap 
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
@@ -11,23 +12,24 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+remote_theme             : "mmistakes/minimal-mistakes"
+#minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "Vaidik Development Society"
-title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+title_separator          : "|"
+#subtitle                 : "Version 1.0"
 name                     : "Vaidik Development Society"
 description              : "NGO"
 url                      : "https://vaidikdevelopmentsociety.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "vaidikdevelopmentsociety/vaidikdevelopmentsociety"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+repository               : "vaidikdevelopmentsociety/vaidikdevelopmentsociety.github.io"
+teaser                   : "/assets/images/main.jpg"
+logo                     : "/assets/images/documents/icon_small.jpg"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
+breadcrumbs              : true #, false (default)
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -59,7 +61,7 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
-search                   : # true, false (default)
+search                   : true # false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
 algolia:
@@ -87,7 +89,7 @@ og_image                 : # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
+  type                   : Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
@@ -216,8 +218,9 @@ sass:
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+#paginate_path: /page:num/
+paginate_path: /works/page:num/
+timezone: Asia/Kolkata
 
 
 # Plugins (previously gems:)
@@ -227,6 +230,8 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-remote-theme
+  #- jekyll-archives
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -254,16 +259,16 @@ tag_archive:
   type: liquid
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+#jekyll-archives:
+  #enabled:
+    #- categories
+    #- tags
+  #layouts:
+    #category: archive-taxonomy
+    #tag: archive-taxonomy
+  #permalinks:
+    #category: /categories/:name/
+    #tag: /tags/:name/
 
 
 # HTML Compression
@@ -273,7 +278,6 @@ compress_html:
   ignore:
     envs: development
 
-
 # Defaults
 defaults:
   # _posts
@@ -282,8 +286,22 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: # true
       share: true
       related: true
+      show_date: true
+      classes: wide
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+
+date_format: "%Y-%m-%d"
+
+github: [metadata]
+
